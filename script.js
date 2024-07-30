@@ -77,7 +77,6 @@ async function uploadCSV() {
                 'Content-Type': 'application/json',
                 'Connection': 'keep-alive'
             },
-            redirect: "follow"
         });
 
         if (!response.ok) {
