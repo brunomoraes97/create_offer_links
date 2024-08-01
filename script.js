@@ -44,10 +44,11 @@ async function uploadCSV() {
                 try {
                     const response = await createOfferUrl(offerUrl, baseURL, token);
                     console.log("Response:", response);
-                    if (response.status !== 200) {
-                        resultsDiv.innerHTML += `<p class="error">Failed to create offer URL: ${offerUrl.id} (HTTP Status: ${response.status})</p>`;
+                    console.log(response.status)
+                    if (response.status != undefined) {
+                        resultsDiv.innerHTML += `<p class="error">Failed to create offer URL! (HTTP Status: ${response.status})</p>`;
                     } else {
-                        resultsDiv.innerHTML += `<p class="success">Successfully created offer: ${offerUrl.id}</p>`;
+                        resultsDiv.innerHTML += `<p class="success">Successfully created offer! URL ID: ${response.data.id}</p>`;
                     }
                 } catch (error) {
                     console.error('Error creating Offer URL:', error);
@@ -85,7 +86,6 @@ async function uploadCSV() {
         }
     
         const responseData = await response.json();
-        console.log('Response data:', responseData);
         return responseData;
     }
 
