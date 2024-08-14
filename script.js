@@ -1,5 +1,3 @@
-console.log("Hello there");
-
 const resultsDiv = document.getElementById('results');
 resultsDiv.innerHTML = ''
 
